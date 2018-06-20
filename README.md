@@ -2,6 +2,22 @@
 
 Functional genomics assays based on high-throughput sequencing greatly expand our ability to understand the genome. Here, we define the ENCODE blacklist- a comprehensive set of regions in the human, mouse, worm, and fly genomes that have anomalous, unstructured, or high signal in next-generation sequencing experiments independent of cell line or experiment. The removal of the ENCODE blacklist is an essential quality measure when analyzing functional genomics data.
 
+# System Requirements
+
+## Hardware Requirements
+Generation of the Blacklist requires a significant amount of RAM and disk storage based on the size of the genome analyzed and the number of input data files being processed. For minimal performance, we recommend a computer with the following specs:
+
+RAM: 64+ GB  
+CPU: 24+ cores, 3.4+ GHz/core
+
+The runtime on this minimal system is approximately 192 CPU hours. Compile time is approximately 1.1 seconds.
+
+## Software Requirements
+
+The package development version is tested on *Linux* operating systems. The developmental version of the package has been tested on the following systems:
+
+Linux: Ubuntu 18.04  
+
 # Installation
 Clone a copy of the Blacklist repository and submodules:
 
