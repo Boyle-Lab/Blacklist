@@ -18,6 +18,14 @@ The package development version is tested on *Linux* operating systems. The deve
 
 Linux: Ubuntu 18.04  
 
+## Demo
+
+We include a small demo file of an unmapped chromosome from mm10. Execution time of this demo is approximately 2.7 seconds. The expected output is a low-mappability region across the entire segment:
+```
+Processing input/demo.bam
+demo	0	23600	1	227
+```
+
 # Installation
 Clone a copy of the Blacklist repository and submodules:
 
