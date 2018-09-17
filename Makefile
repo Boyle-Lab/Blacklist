@@ -1,4 +1,4 @@
-prefix=/nfs/boylelab_turbo/blacklist/Blacklist
+prefix=$(shell pwd)
 
 all:
 	g++ -o Blacklist blacklist.cpp -I $(prefix)/bamtools/include/ -L $(prefix)/bamtools/lib/ -lbamtools -lz -Wl,-rpath,$(prefix)/bamtools/lib/
