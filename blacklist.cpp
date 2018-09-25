@@ -121,7 +121,7 @@ class SequenceData {
 						spikeCntr++;
 					}
 					if(multiCounts[i+j] > 0) {
-						multiCntr += tempCounts[i+j];
+						multiCntr += multiCounts[i+j];
 					}
 				}
 
