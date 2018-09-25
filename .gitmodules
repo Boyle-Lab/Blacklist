@@ -1,0 +1,4 @@
+[submodule "bamtools"]
+	path = bamtools
+	url = https://github.com/pezmaster31/bamtools
+	ignore = dirty
