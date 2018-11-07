@@ -348,7 +348,7 @@ std::vector<double> getAbnormalRegions(std::vector<SequenceData> inputData, std:
 		for(int j = 0; j < inputData.size(); j++) { //over each column
 			means[j] = data[j][i];
 		}
-		result[i] = quantile(means, 0.5); // 90% of cells have at least this value
+		result[i] = quantile(means, 0.5); // This is median signal
 	}
 
 	return result;
@@ -431,14 +431,14 @@ int main(int argc, char* argv[])
 	int miss = 0;
 
 	// Generate the threshold levels for weak and strong hits
-	double readWeakThresh = quantile(readNormList, 0.95);
-	double readStrongThresh = quantile(readNormList, 0.99);
-	double multiWeakThresh = quantile(multiList, 0.95);
-	double multiStrongThresh = quantile(multiList, 0.99);
+	double readWeakThresh = quantile(readNormList, 0.99);
+	double readStrongThresh = quantile(readNormList, 0.999);
+	double multiWeakThresh = quantile(multiList, 0.99);
+	double multiStrongThresh = quantile(multiList, 0.999);
 	double minThresh = *std::min_element( std::begin(readNormList), std::end(readNormList) ); // We can bridge regions that have 0 signal as well.
 			      // Optional to use flag these as blacklist.
 
-	//cerr << readWeakThresh << " " << readStrongThresh << " " << multiWeakThresh << " " << multiStrongThresh << " " << minThresh << endl;
+	//cout << readWeakThresh << " " << readStrongThresh << " " << multiWeakThresh << " " << multiStrongThresh << " " << minThresh << endl;
 
 	for(int i = 0; i < binsMap.size(); i++) {
 		if(readNormList[i] >= readWeakThresh || multiList[i] >= multiWeakThresh || readNormList[i] <= minThresh) {
@@ -465,7 +465,7 @@ int main(int argc, char* argv[])
 				hitCounter++;
 			}
 		} else {
-			if(miss < (binSize/binOverlap + 5)) { // bridge over adjacent bins plus 100 * 200 = 20kb
+			if(miss < (binSize/binOverlap + 200)) { // bridge over adjacent bins plus 100 * 200 = 20kb
 				miss++;
 			} else { //nothing in this distance
 				inRegion = 0;
