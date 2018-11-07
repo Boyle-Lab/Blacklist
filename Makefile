@@ -1,10 +1,13 @@
 prefix=$(shell pwd)
 
+BAMTOOLS_INCLUDE_DIR=$(prefix)/bamtools/install/include/bamtools
+BAMTOOLS_LIB_DIR=$(prefix)/bamtools/install/lib
+
 all:
-	g++ -o Blacklist blacklist.cpp -I $(prefix)/bamtools/include/ -L $(prefix)/bamtools/lib/ -lbamtools -lz -Wl,-rpath,$(prefix)/bamtools/lib/
+	g++ -std=c++14 -o Blacklist blacklist.cpp -I$(BAMTOOLS_INCLUDE_DIR) -L$(BAMTOOLS_LIB_DIR) -lbamtools -lz -Wl,-rpath,$(BAMTOOLS_LIB_DIR)
 
 debug:
-	g++ -g -o Blacklist blacklist.cpp -I $(prefix)/bamtools/include/ -L $(prefix)/bamtools/lib/ -lbamtools -lz -Wl,-rpath,$(prefix)/bamtools/lib/
+	g++ -std=c++14 -g -o Blacklist blacklist.cpp -I$(BAMTOOLS_INCLUDE_DIR) -L$(BAMTOOLS_LIB_DIR) -lbamtools -lz -Wl,-rpath,$(BAMTOOLS_LIB_DIR)
 
 blacklist:
 	./Blacklist chr1 > final.chr1.out

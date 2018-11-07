@@ -39,8 +39,9 @@ Note: bamtools requires zlib to be installed
 cd Blacklist/bamtools/
 mkdir build
 cd build
-cmake ..
+cmake -DCMAKE_INSTALL_PREFIX:PATH=$(cd ..; pwd)/install ..
 make
+make install
 cd ../..
 ```
 
