@@ -20,10 +20,11 @@ Linux: Ubuntu 18.04
 
 ## Demo
 
-We include a small demo file of an unmapped chromosome from mm10. Execution time of this demo is approximately 2.7 seconds. The expected output is a bed annotation of a low-mappability region across the entire segment:
+We include a small demo file of an unmapped chromosome from mm10 (chrUn_GL456392). Execution time of this demo is approximately 0.025 seconds. The expected output is a bed annotation of a abnormal region across the entire segment:
 ```
-Processing input/demo.bam
-demo	0	23600	1	227
+cd demo
+./Blacklist chrUn_GL456392
+chrUn_GL456392	5200	23600	3	18
 ```
 
 # Installation
