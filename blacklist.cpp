@@ -429,6 +429,7 @@ int main(int argc, char* argv[])
 	int hitCode = 0;
 	int hitCounter = 0;
 	int miss = 0;
+	string regionClass = "";
 
 	// Generate the threshold levels for weak and strong hits
 	double readWeakThresh = quantile(readNormList, 0.99);
@@ -472,7 +473,12 @@ int main(int argc, char* argv[])
 
 				// If we hit a threshold we output the whole region
 				if(tempHit == 1) {
-					cout << refName << "\t" << tempFirst*binOverlap << "\t" << tempLast*binOverlap + binSize << "\t" << hitCode << "\t" << hitCounter << "\n";
+					if(hitCode == 2) {
+						regionClass = "Low Mappability";
+					} else {
+						regionClass = "High Signal Region";
+					}
+					cout << refName << "\t" << tempFirst*binOverlap << "\t" << tempLast*binOverlap + binSize << "\t" << regionClass << "\n";
 					tempHit = 0;
 					hitCode = 0;
 					hitCounter = 0;
@@ -484,7 +490,12 @@ int main(int argc, char* argv[])
 	// If we were in a region when when hit the end of the chromosome, output region
 	// This may go past chromosome end!!
 	if(tempHit == 1) {
-		cout << refName << "\t" << tempFirst*binOverlap << "\t" << tempLast*binOverlap + binSize << "\t" << hitCode << "\t" << hitCounter << "\n";
+		if(hitCode == 2) {
+			regionClass = "Low Mappability";
+		} else {
+			regionClass = "High Signal Region";
+		}
+		cout << refName << "\t" << tempFirst*binOverlap << "\t" << tempLast*binOverlap + binSize << "\t" << regionClass << "\n";
 	}
 
 }
