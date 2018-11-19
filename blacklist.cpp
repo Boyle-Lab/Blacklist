@@ -467,7 +467,7 @@ int main(int argc, char* argv[])
 			}
 		} else {
 			if(miss < (binSize/binOverlap + 200)) { // bridge over adjacent bins plus 100 * 200 = 20kb
-				miss++;
+				miss++;				// recommend 5k for the smaller genomes
 			} else { //nothing in this distance
 				inRegion = 0;
 
