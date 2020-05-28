@@ -29,7 +29,7 @@ We include a small demo file of an unmapped chromosome from mm10 (chrUn_GL456392
 ```
 cd demo
 ./Blacklist chrUn_GL456392
-chrUn_GL456392	5200	23600	3	18
+chrUn_GL456392	5200	23600	High Signal Region
 ```
 
 # Installation
