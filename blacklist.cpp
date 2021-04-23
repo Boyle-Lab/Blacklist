@@ -12,7 +12,7 @@
 #include <fstream>
 #include <vector>
 #include <stdint.h>
-#include <math.h>
+#include <cmath>
 #include <dirent.h>
 #include <string>
 #include <algorithm>
